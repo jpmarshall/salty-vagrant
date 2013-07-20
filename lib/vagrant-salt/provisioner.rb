@@ -119,7 +119,7 @@ module VagrantPlugins
           @machine.communicate.sudo("mkdir -p -m777 #{seed_dir}")
           @config.seed_master.each do |name, keyfile|
             sourcepath = expanded_path(keyfile).to_s
-            dest = "#{seed_dir}/seed-#{name}.pub"
+            dest = "#{seed_dir}/#{name}.pub"
             @machine.communicate.upload(sourcepath, dest)   
           end
           options = "#{options} -k #{seed_dir}" 
